@@ -6,6 +6,7 @@
 *   https://www.w3schools.com/java/java_user_input.asp
 *   https://www.w3schools.com/java/java_conditions.asp
 *   https://www.w3schools.com/java/java_variables.asp
+*   https://www.javatpoint.com/java-program-to-find-largest-of-three-numbers
 *
 * input: three ints from user
 * processing: find the largest of the three ints with decision structures
@@ -14,61 +15,36 @@
 
 import java.util.Scanner;
 
-public class LargestOfThree {
-    public static void main(String[] args) {
-        System.out.println("\n\n The Largest of Three Program \n\n");
-
-        // Get three ints from the user.
-        int num1 = 0;
-        int num2 = 0;
-        int num3 = 0;
-        int total = 0;
-        int largest = 0;
-
-        // Create a scanner object for user input.
+public class LargestOfThree
+{
+    public static void main(String[] args)
+    {
         Scanner scanner = new Scanner(System.in);
-
-        // Prompt the user for the first integer.
-        System.out.println("\n\n Please enter an integer for num1: ");
-
-        // Input user reply to num1
-        num1 = Integer.parseInt(scanner.nextLine());
-
-        // Prompt the user for the second integer.
-        System.out.println("\n\n Please enter the second integer: ");
-
-        // Input user reply to num1
-        num2 = Integer.parseInt(scanner.nextLine());
-
-        // Prompt the user for the third integer.
-        System.out.println("\n\n Please enter the third and last integer: ");
-
-        // Input user reply to num1
-        num3 = Integer.parseInt(scanner.nextLine());
-
-        total = num1 + num2 + num3;
-
-        System.out.println("\n The sum of " + num1 + " and " + num2 + " and " + num3 + " is: " + total);
-
-        // Find the largest of three ints with decisions.
-        if (num1 > num2) {
-            if (num1 > num3) {
-                largest = num1;
-            }
-            else {
-                largest = num2;
-            }
+        // Get three integers from user
+        System.out.print("Enter first integer: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter second integer: ");
+        int num2 = scanner.nextInt();
+        System.out.print("Enter third integer: ");
+        int num3 = scanner.nextInt();
+        // Determine largest integer
+        int largest = num1;
+        if (num2 > largest && num2 > num3)
+        {
+            largest = num2;
         }
-        else {
-            if (num2 > num3) {
-                largest = num2;
-            }
-            else {
-                largest = num3;
-            }
+        else if (num3 > largest && num3 > num2)
+        {
+            largest = num3;
         }
-
-        System.out.println("\n\n The largest of " + num1 + " and " + num2 + " and " + num3 + " is: " + largest);
-
+        else
+        {
+            System.out.println("All the integers are the same");
+        }
+        // Calculate sum of integers
+        int sum = num1 + num2 + num3;
+        // Output results
+        System.out.println("The largest of " + num1 + " and " + num2 + " and " + num3 + " is: " + largest);
+        System.out.println("The sum of " + num1 + " " + num2 + " " + num3 + " is: " + sum);
     }
 }
